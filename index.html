@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kunguma Sarveshwaran Venkatachalam | Cyber Security Consultant</title>
+<meta name="description" content="Cyber security consultant working with consumer, manufacturing and industrial organisations. Case studies, tools and views on industrial security.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#EEF1F4; --panel:#FFFFFF; --ink:#14213D; --steel:#4A5A6E; --rule:#C5CDD6;
+  --signal:#F2B705; --teal:#22717F; --teal-soft:#DCEBEE;
+  --sans:"Archivo", "Helvetica Neue", Arial, sans-serif;
+  --serif:"Source Serif 4", Georgia, "Times New Roman", serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#111A27; --panel:#182333; --ink:#E4EAF1; --steel:#9DAABA; --rule:#2C394B;
+    --teal:#5FB3C1; --teal-soft:#16323A;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#111A27; --panel:#182333; --ink:#E4EAF1; --steel:#9DAABA; --rule:#2C394B;
+  --teal:#5FB3C1; --teal-soft:#16323A;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 72px);scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);font-size:1.0625rem;line-height:1.65}
+img{max-width:100%}
+a{color:var(--teal);text-underline-offset:3px}
+a:hover{text-decoration-thickness:2px}
+:focus-visible{outline:3px solid var(--signal);outline-offset:3px}
+h1,h2,h3,h4{font-family:var(--sans);line-height:1.15;margin:0}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+
+/* header */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:var(--paper);border-bottom:1px solid var(--rule)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:60px}
+.mark{font-family:var(--sans);font-weight:700;font-stretch:112%;text-decoration:none;color:var(--ink);font-size:1rem}
+.top nav{display:flex;gap:20px;font-family:var(--sans);font-size:.95rem}
+.top nav a{color:var(--steel);text-decoration:none}
+.top nav a:hover{color:var(--ink)}
+@media (max-width:720px){.top nav{display:none}}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1.05fr 1fr;gap:56px;padding:64px 0 72px;align-items:start}
+.hero h1{font-size:clamp(2.4rem,5.4vw,4.2rem);font-weight:800;font-stretch:118%;letter-spacing:-.01em;max-width:12ch}
+.hero .lede{font-size:1.2rem;color:var(--steel);max-width:34em;margin:24px 0 0}
+.hero .who{font-family:var(--sans);margin-top:28px;font-size:1rem}
+.hero .who strong{display:block;font-size:1.1rem}
+@media (max-width:900px){.hero{grid-template-columns:1fr;gap:40px;padding-top:40px}}
+
+/* purdue stack */
+.stack-intro{font-family:var(--sans);font-size:.95rem;color:var(--steel);margin:0 0 12px}
+.stack{display:flex;flex-direction:column;gap:4px}
+.lvl{all:unset;cursor:pointer;display:grid;grid-template-columns:64px 1fr;align-items:center;min-height:48px;
+  background:var(--panel);border:1px solid var(--rule);border-left:6px solid var(--rule);font-family:var(--sans)}
+.lvl .n{font-weight:800;font-stretch:80%;font-size:1.35rem;text-align:center;color:var(--steel)}
+.lvl .t{padding:8px 14px 8px 0;font-size:.98rem}
+.lvl .t small{display:block;color:var(--steel);font-size:.82rem}
+.lvl:hover{border-left-color:var(--teal)}
+.lvl[aria-pressed="true"]{border-left-color:var(--signal);background:var(--teal-soft)}
+.lvl[aria-pressed="true"] .n{color:var(--ink)}
+.lvl:focus-visible{outline:3px solid var(--signal);outline-offset:2px}
+.lvl.dmz{border-style:dashed;border-left-style:solid}
+.panel{margin-top:14px;padding:18px 20px;background:var(--panel);border:1px solid var(--rule);min-height:150px}
+.panel h3{font-size:1.05rem;font-stretch:105%}
+.panel p{margin:8px 0 10px;font-size:.98rem}
+.panel ul{margin:0;padding-left:18px;font-size:.96rem}
+@media (prefers-reduced-motion:no-preference){
+  .lvl{opacity:0;transform:translateY(8px);animation:rise .45s ease-out forwards}
+  @keyframes rise{to{opacity:1;transform:none}}
+}
+
+/* sections */
+section.block{padding:72px 0;border-top:1px solid var(--rule)}
+.sec-head{display:grid;grid-template-columns:280px 1fr;gap:40px;margin-bottom:36px}
+.sec-head h2{font-size:2rem;font-weight:800;font-stretch:112%}
+.sec-head p{margin:0;color:var(--steel);max-width:38em}
+@media (max-width:900px){.sec-head{grid-template-columns:1fr;gap:12px}}
+
+/* case studies */
+.case{display:grid;grid-template-columns:280px 1fr;gap:40px;padding:28px 0;border-top:1px solid var(--rule)}
+.case:first-of-type{border-top:0;padding-top:0}
+.case .meta{font-family:var(--sans);font-size:.92rem;color:var(--steel)}
+.case .meta .lv{display:inline-block;margin-top:8px;padding:2px 8px;border:1px solid var(--rule);background:var(--panel);color:var(--ink)}
+.case h3{font-size:1.4rem;font-weight:700;margin-bottom:10px}
+.case p{margin:0 0 10px;max-width:40em}
+.case dl{display:grid;grid-template-columns:auto 1fr;gap:4px 16px;margin:12px 0;max-width:40em;font-size:.98rem}
+.case dt{font-family:var(--sans);font-weight:600}
+.case dd{margin:0}
+@media (max-width:900px){.case{grid-template-columns:1fr;gap:8px}}
+
+/* tools */
+.tools{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start}
+@media (max-width:900px){.tools{grid-template-columns:1fr}}
+.tool{background:var(--panel);border:1px solid var(--rule);border-top:6px solid var(--ink);padding:24px}
+.tool h3{font-size:1.3rem;margin-bottom:6px}
+.tool > p{margin:0 0 18px;color:var(--steel);font-size:.98rem}
+.field{display:grid;gap:4px;margin-bottom:14px;font-family:var(--sans)}
+.field label{font-size:.92rem;font-weight:600}
+.field input{font:inherit;font-size:1rem;padding:9px 10px;border:1px solid var(--rule);background:var(--paper);color:var(--ink);width:100%}
+.out{font-family:var(--sans);border-top:1px solid var(--rule);margin-top:6px;padding-top:14px}
+.out table{width:100%;border-collapse:collapse;font-size:.96rem}
+.out td{padding:5px 0;border-bottom:1px solid var(--rule)}
+.out td:last-child{text-align:right;font-weight:700}
+.verdict{margin:14px 0 0;font-family:var(--serif);font-size:.98rem}
+.note{font-size:.85rem;color:var(--steel);margin-top:12px}
+.q{border:0;margin:0 0 12px;padding:0}
+.q legend{font-family:var(--sans);font-size:.95rem;font-weight:600;padding:0;margin-bottom:6px}
+.q .opts{display:flex;gap:6px;flex-wrap:wrap}
+.q input{position:absolute;opacity:0;width:1px;height:1px}
+.q label{font-family:var(--sans);font-size:.88rem;padding:6px 12px;border:1px solid var(--rule);cursor:pointer;background:var(--paper)}
+.q input:checked + label{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.q input:focus-visible + label{outline:3px solid var(--signal);outline-offset:2px}
+.gaps{margin:10px 0 0;padding-left:20px;font-family:var(--serif);font-size:.96rem}
+.btn{font-family:var(--sans);font-weight:600;font-size:.95rem;padding:10px 16px;background:var(--ink);color:var(--paper);border:0;cursor:pointer}
+
+/* views */
+.views{display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
+@media (max-width:900px){.views{grid-template-columns:1fr}}
+.view h3{font-size:1.2rem;margin-bottom:10px;padding-top:14px;border-top:3px solid var(--signal)}
+.view p{margin:0 0 10px;font-size:1rem}
+
+/* code */
+.repo{display:grid;grid-template-columns:1fr auto;gap:16px;align-items:baseline;padding:16px 0;border-top:1px solid var(--rule);font-family:var(--sans)}
+.repo:last-child{border-bottom:1px solid var(--rule)}
+.repo b{font-size:1.05rem}
+.repo span{display:block;font-family:var(--serif);color:var(--steel);font-size:.98rem}
+.repo em{font-style:normal;font-size:.88rem;color:var(--steel)}
+
+/* contact */
+.contact{display:grid;grid-template-columns:280px 1fr;gap:40px}
+.contact p{margin:0 0 8px;max-width:38em}
+@media (max-width:900px){.contact{grid-template-columns:1fr;gap:12px}}
+footer{padding:28px 0 40px;font-family:var(--sans);font-size:.88rem;color:var(--steel);border-top:1px solid var(--rule)}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="mark" href="#top">K. S. Venkatachalam</a>
+    <nav aria-label="Sections">
+      <a href="#work">Case studies</a><a href="#tools">Tools</a><a href="#views">Views</a><a href="#code">Code</a><a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap">
+    <section class="hero">
+      <div>
+        <h1>Security that keeps the line running.</h1>
+        <p class="lede">I help consumer, manufacturing and industrial organisations protect the systems that make and move their products, without stopping production to do it. This site shows how I work through problems: independent case studies, tools I have built and my views on where industrial security is heading.</p>
+        <p class="who"><strong>Kunguma Sarveshwaran Venkatachalam</strong>Cyber security consultant, Liverpool, United Kingdom</p>
+      </div>
+      <div>
+        <p class="stack-intro">Choose a layer of a typical factory to see the work on this site that addresses it.</p>
+        <div class="stack" role="group" aria-label="Factory network layers, Purdue model">
+          <button class="lvl" data-k="4" aria-pressed="false"><span class="n">4–5</span><span class="t">Enterprise and cloud<small>ERP, email, corporate IT, cloud analytics</small></span></button>
+          <button class="lvl dmz" data-k="35" aria-pressed="false"><span class="n">3.5</span><span class="t">IT/OT boundary<small>DMZ, data brokers, remote access</small></span></button>
+          <button class="lvl" data-k="3" aria-pressed="true"><span class="n">3</span><span class="t">Site operations<small>MES, historian, engineering workstations</small></span></button>
+          <button class="lvl" data-k="2" aria-pressed="false"><span class="n">2</span><span class="t">Supervisory control<small>HMIs, SCADA</small></span></button>
+          <button class="lvl" data-k="1" aria-pressed="false"><span class="n">1</span><span class="t">Basic control<small>PLCs, safety systems</small></span></button>
+          <button class="lvl" data-k="0" aria-pressed="false"><span class="n">0</span><span class="t">Physical process<small>Sensors, drives, connected products</small></span></button>
+        </div>
+        <div class="panel" id="panel" aria-live="polite"></div>
+      </div>
+    </section>
+  </div>
+
+  <section class="block" id="work">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Case studies</h2>
+        <p>Independent pieces of work built around problems I see repeatedly in consumer and manufacturing businesses. Each one has a full write up and artefacts in the repository.</p>
+      </div>
+
+      <article class="case">
+        <div class="meta">Incident readiness<br>Food manufacturing<br><span class="lv">Layers 3 to 5</span></div>
+        <div>
+          <h3>Ransomware tabletop exercise for a two plant food manufacturer</h3>
+          <p>Short shelf life stock and supermarket delivery slots turn a ransomware outage into a commercial crisis within hours. This exercise tests the decisions leadership has to make, not the technical recovery.</p>
+          <dl>
+            <dt>Built</dt><dd>Five timed injects, a decision log and a one page board summary template</dd>
+            <dt>Tests</dt><dd>Authority to stop a line, customer communication, ICO notification, recovery priorities</dd>
+            <dt>Shows</dt><dd>Facilitation, crisis decision making and translating cyber risk into operational terms</dd>
+          </dl>
+          <a class="gh" data-path="projects/ransomware-tabletop">Read the exercise pack</a>
+        </div>
+      </article>
+
+      <article class="case">
+        <div class="meta">Threat modelling<br>Consumer goods<br><span class="lv">Layers 0 to 4</span></div>
+        <div>
+          <h3>Threat model for a packaging line joining a cloud analytics platform</h3>
+          <p>Connecting production lines to predictive maintenance services is where most new OT risk is introduced. I applied STRIDE to every flow crossing a trust boundary and mapped credible threats to MITRE ATT&amp;CK for ICS.</p>
+          <dl>
+            <dt>Built</dt><dd>Purdue level asset map, threat table, controls roadmap over 12 months</dd>
+            <dt>Finding</dt><dd>The highest impact threat is a silent change to fill or seal parameters, leading to recall, not data theft</dd>
+            <dt>Shows</dt><dd>IEC 62443 zones and conduits thinking, business impact framing</dd>
+          </dl>
+          <a class="gh" data-path="projects/packaging-line-threat-model">Read the threat model</a>
+        </div>
+      </article>
+
+      <article class="case">
+        <div class="meta">Vulnerability management<br>Mixed IT and OT<br><span class="lv">Layers 1 to 5</span></div>
+        <div>
+          <h3>Risk based vulnerability prioritisation that respects production</h3>
+          <p>A Python tool that ranks findings by CVSS, EPSS, CISA KEV status and asset context, then suggests a realistic treatment. OT assets get compensating controls and planned outage windows instead of patch deadlines nobody can meet.</p>
+          <dl>
+            <dt>Built</dt><dd>Python script, synthetic dataset, documented scoring logic</dd>
+            <dt>Result</dt><dd>In the sample, four of the top six risks would be missed by a CVSS only ranking</dd>
+            <dt>Shows</dt><dd>Evidence based prioritisation and practical OT constraints</dd>
+          </dl>
+          <a class="gh" data-path="projects/vuln-prioritisation">View the code</a>
+        </div>
+      </article>
+
+      <article class="case">
+        <div class="meta">Product security regulation<br>Consumer manufacturing<br><span class="lv">Layer 0, connected products</span></div>
+        <div>
+          <h3>PSTI Act readiness for a connected appliance maker</h3>
+          <p>Since April 2024, UK law requires connectable consumer products to meet baseline security requirements. For a manufacturer moving into app controlled appliances, the hardest requirement turned out to be commercial: committing to a security update period.</p>
+          <dl>
+            <dt>Built</dt><dd>Requirement by requirement gap analysis and an eight point readiness checklist</dd>
+            <dt>Insight</dt><dd>The update period is a finance and product decision, not only an engineering one</dd>
+            <dt>Shows</dt><dd>Regulatory interpretation and aligning security with business models</dd>
+          </dl>
+          <a class="gh" data-path="projects/psti-readiness">Read the assessment</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="block" id="tools">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Tools</h2>
+        <p>Two small tools I use to start conversations with leadership teams. Both run in your browser and store nothing.</p>
+      </div>
+      <div class="tools">
+        <div class="tool">
+          <h3>Return on security investment</h3>
+          <p>Estimates whether a control pays for itself, using annual loss expectancy. Change the figures to match your situation.</p>
+          <div class="field"><label for="sle">Cost of one serious incident (£)</label><input id="sle" type="number" min="0" step="10000" value="1800000"></div>
+          <div class="field"><label for="aro">Chance of that incident in a year (%)</label><input id="aro" type="number" min="0" max="100" step="1" value="12"></div>
+          <div class="field"><label for="red">Risk reduction the control delivers (%)</label><input id="red" type="number" min="0" max="100" step="5" value="60"></div>
+          <div class="field"><label for="cost">Annual cost of the control (£)</label><input id="cost" type="number" min="0" step="5000" value="85000"></div>
+          <div class="out" aria-live="polite">
+            <table>
+              <tr><td>Expected annual loss today</td><td id="o1"></td></tr>
+              <tr><td>Expected annual loss with control</td><td id="o2"></td></tr>
+              <tr><td>Net annual benefit</td><td id="o3"></td></tr>
+              <tr><td>Return on security investment</td><td id="o4"></td></tr>
+            </table>
+            <p class="verdict" id="v"></p>
+          </div>
+          <p class="note">A starting point for a business case, not a forecast. Incident cost should include downtime, waste, penalties and recovery, not only IT costs.</p>
+        </div>
+
+        <div class="tool">
+          <h3>Manufacturing cyber readiness check</h3>
+          <p>Eight questions based on the Cyber Essentials controls plus the areas that matter most in plants. Answer honestly to see where to start.</p>
+          <form id="rc">
+            <div id="qs"></div>
+            <button class="btn" type="submit">Show my priorities</button>
+          </form>
+          <div class="out" id="rcout" aria-live="polite" hidden></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="views">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Views</h2>
+        <p>Short positions on questions clients ask me about. I keep these updated as the landscape moves.</p>
+      </div>
+      <div class="views">
+        <article class="view">
+          <h3>AI on the shop floor adds two new attack surfaces</h3>
+          <p>Predictive maintenance models create a new outbound path for production data and a new input that attackers can poison. Operator copilots add another: a maintenance manual or ticket containing hidden instructions can steer what the assistant recommends.</p>
+          <p>Treat model inputs as untrusted, keep a human approving any action on the line, and assess AI use cases against the NIST AI RMF before they reach production.</p>
+        </article>
+        <article class="view">
+          <h3>Why IT patching rules fail in a plant</h3>
+          <p>A 30 day patch target makes sense for laptops. On a validated filling line it can mean an unplanned stoppage, a requalification and lost output worth more than the risk.</p>
+          <p>Plants need risk based treatment instead: compensating controls now, patching aligned to the production calendar, and exploitation evidence such as the KEV list deciding what jumps the queue.</p>
+        </article>
+        <article class="view">
+          <h3>Writing a cyber proposal a finance director will read</h3>
+          <p>Start with the business event the client fears, such as a lost retail contract or a recall, and put a number on it. Show phases with clear exit points so the client is never committed to more than they can see value in.</p>
+          <p>Agree how benefits will be measured before the work starts. It turns the final report from a list of activities into evidence for the next investment.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="code">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Code and artefacts</h2>
+        <p>Everything here is in this repository. Data used in examples is synthetic.</p>
+      </div>
+      <div>
+        <div class="repo"><div><b>vuln-prioritisation</b><span>Ranks vulnerabilities by exploitation likelihood and asset context, with OT aware treatment.</span></div><em>Python</em></div>
+        <div class="repo"><div><b>packaging-line-threat-model</b><span>STRIDE and ATT&amp;CK for ICS threat model with a 12 month controls roadmap.</span></div><em>Markdown</em></div>
+        <div class="repo"><div><b>ransomware-tabletop</b><span>Exercise pack with timed injects and a board summary template.</span></div><em>Markdown</em></div>
+        <div class="repo"><div><b>psti-readiness</b><span>UK PSTI regime gap analysis and readiness checklist.</span></div><em>Markdown</em></div>
+        <div class="repo"><div><b>index.html</b><span>This site, including the two browser tools. No build step, no tracking.</span></div><em>HTML, JavaScript</em></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="contact">
+    <div class="wrap contact">
+      <h2 style="font-size:2rem;font-weight:800;font-stretch:112%">Contact</h2>
+      <div>
+        <p>I am open to cyber security consulting roles in the UK, particularly with consumer, manufacturing and industrial clients.</p>
+        <p><a href="mailto:Ksarveshvenkatachalam@gmail.com">Ksarveshvenkatachalam@gmail.com</a></p>
+        <p><a id="li" href="https://www.linkedin.com/">LinkedIn profile</a></p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap">Kunguma Sarveshwaran Venkatachalam, Liverpool, United Kingdom. Case studies use fictional organisations and synthetic data.</div></footer>
+
+<script>
+/* Set this to your GitHub repository URL so case study links open the right folder. */
+const GITHUB_REPO = "https://github.com/your-username/cyber-security-portfolio";
+const LINKEDIN_URL = "https://www.linkedin.com/";
+
+document.querySelectorAll(".gh").forEach(a => {
+  a.href = GITHUB_REPO + "/tree/main/" + a.dataset.path;
+});
+document.getElementById("li").href = LINKEDIN_URL;
+
+/* Purdue stack */
+const layers = {
+  "4": {h:"Enterprise and cloud", p:"Where most attacks start, and where business decisions about risk are made.",
+        w:[["Ransomware tabletop exercise","work"],["Return on security investment tool","tools"],["Cyber proposals for finance directors","views"]]},
+  "35":{h:"IT/OT boundary", p:"The most important layer to get right. Every connection between corporate IT and production should cross it deliberately.",
+        w:[["Packaging line threat model, DMZ data broker design","work"],["AI on the shop floor","views"]]},
+  "3": {h:"Site operations", p:"MES, historians and engineering workstations hold recipes and production plans, and give a path down to the line.",
+        w:[["Vulnerability prioritisation with OT treatment","work"],["Ransomware tabletop, MES recovery decisions","work"],["Readiness check","tools"]]},
+  "2": {h:"Supervisory control", p:"HMIs and SCADA are often old, rarely patched and trusted by everything below them.",
+        w:[["Threat model, unauthorised command messages","work"],["Why IT patching rules fail in a plant","views"]]},
+  "1": {h:"Basic control", p:"PLCs and safety systems. Changes here affect product quality and people's safety directly.",
+        w:[["Threat model, parameter tampering and change detection","work"],["Vulnerability prioritisation, safety weighting","work"]]},
+  "0": {h:"Physical process and connected products", p:"Sensors and drives on the line, and for consumer manufacturers, the connected products they sell.",
+        w:[["PSTI Act readiness for connected appliances","work"]]}
+};
+const panel = document.getElementById("panel");
+const btns = document.querySelectorAll(".lvl");
+function show(k){
+  const L = layers[k];
+  panel.innerHTML = `<h3>${L.h}</h3><p>${L.p}</p><ul>${L.w.map(([t,s])=>`<li><a href="#${s}">${t}</a></li>`).join("")}</ul>`;
+  btns.forEach(b => b.setAttribute("aria-pressed", b.dataset.k === k ? "true" : "false"));
+}
+btns.forEach((b,i) => {
+  b.style.animationDelay = ((btns.length - 1 - i) * 90) + "ms";
+  b.addEventListener("click", () => show(b.dataset.k));
+});
+show("3");
+
+/* ROSI */
+const gbp = n => (n < 0 ? "−£" : "£") + Math.abs(Math.round(n)).toLocaleString("en-GB");
+function rosi(){
+  const sle = +document.getElementById("sle").value || 0;
+  const aro = (+document.getElementById("aro").value || 0) / 100;
+  const red = (+document.getElementById("red").value || 0) / 100;
+  const cost = +document.getElementById("cost").value || 0;
+  const ale = sle * aro, after = ale * (1 - red), benefit = ale - after - cost;
+  document.getElementById("o1").textContent = gbp(ale);
+  document.getElementById("o2").textContent = gbp(after);
+  document.getElementById("o3").textContent = gbp(benefit);
+  const r = cost > 0 ? (benefit / cost) * 100 : 0;
+  document.getElementById("o4").textContent = cost > 0 ? Math.round(r) + "%" : "Enter a control cost";
+  document.getElementById("v").textContent = cost <= 0 ? "" :
+    r >= 0 ? `On these figures the control pays for itself, returning ${gbp(benefit)} a year beyond its cost.`
+           : `On these figures the control costs more than the risk it removes. Look for a cheaper control, or check whether the incident cost includes downtime and penalties.`;
+}
+["sle","aro","red","cost"].forEach(id => document.getElementById(id).addEventListener("input", rosi));
+rosi();
+
+/* Readiness check */
+const qs = [
+  ["Is every internet facing system behind a managed firewall with default rules removed?", "Review firewall rules for internet facing systems and remove any that are not needed.", 2],
+  ["Is multi factor authentication enforced for email, remote access and admin accounts?", "Enforce MFA on email, remote access and admin accounts first. It blocks most credential attacks.", 3],
+  ["Are laptops, servers and network devices patched within 14 days of a critical fix?", "Set a 14 day target for critical patches on IT systems and report against it monthly.", 2],
+  ["Is there a separate, controlled network boundary between office IT and production systems?", "Separate production networks from office IT with a controlled boundary. This limits how far ransomware can spread.", 3],
+  ["Do vendors reach production systems only through a controlled, logged remote access route?", "Route all vendor access through one controlled, logged jump host with MFA and time limited sessions.", 3],
+  ["Are backups of key systems, including PLC logic and MES, held offline and tested this year?", "Keep offline backups of PLC logic, MES and key servers, and run a restore test this quarter.", 3],
+  ["Do you have an up to date list of production assets, including PLCs and HMIs?", "Build an asset list for production systems. You cannot protect or patch what you do not know about.", 2],
+  ["Has leadership rehearsed a cyber incident that stops production in the last 12 months?", "Run a tabletop exercise with leadership on a production stopping incident.", 2]
+];
+const host = document.getElementById("qs");
+qs.forEach(([q], i) => {
+  const f = document.createElement("fieldset"); f.className = "q";
+  f.innerHTML = `<legend>${i+1}. ${q}</legend><div class="opts">` +
+    ["Yes","Partly","No"].map(o => `<input type="radio" name="q${i}" id="q${i}${o}" value="${o}" required><label for="q${i}${o}">${o}</label>`).join("") + `</div>`;
+  host.appendChild(f);
+});
+document.getElementById("rc").addEventListener("submit", e => {
+  e.preventDefault();
+  let got = 0, max = 0; const gaps = [];
+  qs.forEach(([, fix, w], i) => {
+    const v = (document.querySelector(`input[name=q${i}]:checked`) || {}).value;
+    max += w * 2;
+    const pts = v === "Yes" ? 2 : v === "Partly" ? 1 : 0;
+    got += w * pts;
+    if (pts < 2) gaps.push({fix, gap: w * (2 - pts)});
+  });
+  gaps.sort((a, b) => b.gap - a.gap);
+  const pct = Math.round(got / max * 100);
+  const out = document.getElementById("rcout");
+  out.hidden = false;
+  out.innerHTML = `<p style="margin:0;font-weight:700">Readiness: ${pct}%</p>` +
+    (gaps.length ? `<p class="verdict">Start with these, in order of risk reduced:</p><ol class="gaps">${gaps.slice(0,3).map(g=>`<li>${g.fix}</li>`).join("")}</ol>`
+                 : `<p class="verdict">Strong baseline. Next step: test it under pressure with a tabletop exercise and an independent assessment against IEC 62443.</p>`);
+});
+</script>
+</body>
+</html>
